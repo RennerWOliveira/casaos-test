@@ -8,7 +8,7 @@ services:
   # The `chameleon-chat-service` service definition
   chameleon-chat-service:
     # Name of the container
-    container_name: chameleon-chat-service
+    container_name: chameleon-chat-api
     # Image to be used for the container
     image: 192.168.0.246:5000/chameleon-chat-api:latest
     # Container restart policy
