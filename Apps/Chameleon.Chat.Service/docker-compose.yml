@@ -1,0 +1,34 @@
+name: chameleon-chat-service
+
+version: "3"
+
+services:
+  chameleon-chat-service:
+    container_name: chameleon-chat-service
+    image: 192.168.0.246:5000/chameleon-chat-api:latest
+    restart: always
+    environment:
+      - TZ=Etc/UTC
+    ports:
+      - "8088:8080" # HTTPS
+    volumes: []
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  main: chameleon-chat-service
+  author: Renner Oliveira
+  category: Games
+  description:
+    en_us: Hosted Service + API for Chameleon Chat (.NET + SignalR)
+  developer: Renner Oliveira
+  icon: http://192.168.0.246:3002/Chameleon/chameleon.casaos.store/raw/branch/master/Apps/Chameleon.Chat.Service/icon.png
+  screenshot_link: []
+  tagline:
+    en_us: Real-time chat service for Chameleon.
+  title:
+    en_us: Chameleon
+  index: /panel
+  scheme: https
+  port_map: "8080"

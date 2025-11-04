@@ -1,0 +1,71 @@
+{
+  "version": "1.0",
+  "title": "Chameleon Chat Service",
+  "name": "chameleon-chat-service",
+  "icon": "http://192.168.0.246:3002/Chameleon/chameleon.casaos.store/raw/branch/master/Apps/Chameleon.Chat.Service/icon.png",
+  "tagline": "Hosted Service + API do Chameleon Chat.",
+  "overview": "Serviço .NET + SignalR para mensagens do Chameleon Chat. Ideal para homelab no CasaOS com deploy via registry privado.",
+  "thumbnail": "http://192.168.0.246:3002/Chameleon/chameleon.casaos.store/raw/branch/master/Apps/Chameleon.Chat.Service/icon.png",
+  "screenshots": [],
+  "category": ["Games"],
+  "developer": {
+    "name": "Renner Oliveira",
+    "website": "http://192.168.0.246:3002/Chameleon/chameleon.casaos.store",
+    "donate_text": "",
+    "donate_link": ""
+  },
+  "adaptor": {
+    "name": "Renner Oliveira",
+    "website": "http://192.168.0.246:3002/Chameleon/chameleon.casaos.store",
+    "donate_text": "",
+    "donate_link": ""
+  },
+  "support": "http://192.168.0.246:3002/Chameleon/chameleon.casaos.store",
+  "website": "https://www.casaos.io",
+  "container": {
+    "image": "192.168.0.246:5000/chameleon-chat-api:latest",
+    "shell": "bash",
+    "privileged": false,
+    "network_model": "bridge",
+    "web_ui": {
+      "http": "8088",
+      "path": "/"
+    },
+    "envs": [
+      {
+        "key": "TZ",
+        "value": "Etc/UTC",
+        "configurable": "yes",
+        "description": "Timezone"
+      }
+    ],
+    "ports": [
+      {
+        "container": "8080",
+        "host": "8088",
+        "type": "tcp",
+        "allocation": "required",
+        "configurable": "no",
+        "description": "Http server"
+      }
+    ],
+    "volumes": [],
+    "devices": [],
+    "constraints": {
+      "min_memory": 1024,
+      "min_storage": 1024
+    },
+    "restart_policy": "unless-stopped",
+    "sysctls": [],
+    "cap_add": [],
+    "labels": []
+  },
+  "abilities": {
+    "notification": false,
+    "widgets": false,
+    "authentication": false,
+    "search": false,
+    "upnp": false
+  },
+  "tips": {}
+}
