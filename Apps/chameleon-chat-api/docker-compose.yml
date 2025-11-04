@@ -62,7 +62,7 @@ x-casaos:
   # Author of this particular configuration
   author: Renner Oliveira
   # Icon URL for the application
-  icon: http://192.168.0.246:3002/Chameleon/chameleon.casaos.store/raw/branch/master/Apps/Chameleon.Chat.Service/icon.png
+  icon: https://github.com/RennerWOliveira/casaos-test/blob/main/Apps/chameleon-chat-api/icon.png?raw=true
   # Thumbnail image for the application (if any)
   thumbnail: ""
   # Title for the application
