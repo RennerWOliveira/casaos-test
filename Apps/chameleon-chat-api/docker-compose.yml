@@ -1,0 +1,74 @@
+# Configuration for chameleon-chat-service setup
+
+# Name of the chameleon-chat-service application
+name: chameleon-chat-service
+# Service definitions for the chameleon-chat-service application
+services:
+  # Service name: chameleon-chat-service
+  # The `chameleon-chat-service` service definition
+  chameleon-chat-service:
+    # Name of the container
+    container_name: chameleon-chat-service
+    # Image to be used for the container
+    image: 192.168.0.246:5000/chameleon-chat-api:latest
+    # Container restart policy
+    restart: unless-stopped
+    # Environment variables
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://0.0.0.0:8080
+      - TZ=America/Sao_Paulo
+    # Volumes to be mounted to the container
+    volumes:
+      - /DATA/AppData/$AppID/logs:/app/logs
+    # Ports mapping between host and container
+    ports:
+      # Mapping port 8088 of the host to port 8080 of the container
+      - "8088:8080"
+    x-casaos:
+      envs:
+        - container: ASPNETCORE_ENVIRONMENT
+          description:
+            en_us: 'Container Variable: ASPNETCORE_ENVIRONMENT'
+        - container: ASPNETCORE_URLS
+          description:
+            en_us: 'Container Variable: ASPNETCORE_URLS'
+        - container: TZ
+          description:
+            en_us: 'Container Variable: TZ'
+      volumes:
+        - container: /app/logs
+          description:
+            en_us: 'Container Path: /app/logs'
+      ports:
+        - container: "8080"
+          description:
+            en_us: 'Container Port: 8080'
+x-casaos:
+  # Supported CPU architectures for this application
+  architectures:
+    - amd64
+    - arm64
+  # Main service for this application
+  main: chameleon-chat-service
+  # Detailed description for the application
+  description:
+    en_us: Hosted Service + API for Chameleon Chat (.NET + SignalR) with real-time message streaming.
+  # Brief tagline for the application
+  tagline:
+    en_us: Real-time chat backend for the Chameleon ecosystem.
+  # Developer's information
+  developer: Renner Oliveira
+  # Author of this particular configuration
+  author: Renner Oliveira
+  # Icon URL for the application
+  icon: http://192.168.0.246:3002/Chameleon/chameleon.casaos.store/raw/branch/master/Apps/Chameleon.Chat.Service/icon.png
+  # Thumbnail image for the application (if any)
+  thumbnail: ""
+  # Title for the application
+  title:
+    en_us: Chameleon Chat API
+  # Category under which the application falls
+  category: Chameleon
+  # Default port mapping for the application
+  port_map: "8088"

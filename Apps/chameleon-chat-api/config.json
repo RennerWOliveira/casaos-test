@@ -1,0 +1,7 @@
+{
+  "id": "chameleon-chat-api",
+  "version": "1.0.0",
+  "image": "192.168.0.246:5000/chameleon-chat-api:latest",
+  "youtube": "",
+  "docs_link": ""
+}
