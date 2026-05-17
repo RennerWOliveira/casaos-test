@@ -1,0 +1,58 @@
+name: chameleon-notifier-service
+services:
+  chameleon-notifier-service:
+    container_name: chameleon-notifier-service
+    image: 192.168.0.246:5000/chameleon-notifier-service:latest
+    restart: unless-stopped
+    environment:
+      - PORT=3010
+      - API_KEY=1739a70bfc827dc6480674f139a937d9
+      - DATABASE_URL=postgresql://casaos:casaos@192.168.0.246:5432/chameleon-notifier
+      - OPENAI_API_KEY=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
+    volumes:
+      - /DATA/AppData/$AppID/.wwebjs_auth:/app/.wwebjs_auth
+      - /DATA/AppData/$AppID/.wwebjs_cache:/app/.wwebjs_cache
+    ports:
+      - "3010:3010"
+    x-casaos:
+      envs:
+        - container: PORT
+          description:
+            en_us: 'API Port: PORT'
+        - container: API_KEY
+          description:
+            en_us: 'API Key: API Key for authentication'
+        - container: DATABASE_URL
+          description:
+            en_us: 'Database URL: DATABASE_URL'
+        - container: OPENAI_API_KEY
+          description:
+            en_us: 'OpenAI API Key: OPENAI_API_KEY for accessing OpenAI services'
+      volumes:
+        - container: /app/.wwebjs_auth
+          description:
+            en_us: 'Authentication Data: /app/.wwebjs_auth for storing authentication data whatsapp'
+        - container: /app/.wwebjs_cache
+          description:
+            en_us: 'Cache Data: /app/.wwebjs_cache for storing cache data whatsapp'
+      ports:
+        - container: "3010"
+          description:
+            en_us: 'API Port: 3010 for accessing the API'
+x-casaos:
+  architectures:
+    - amd64
+    - arm64
+  main: chameleon-notifier-service
+  description:
+    en_us: API for Chameleon Notifier service, providing whatsapp notification capabilities.
+  tagline:
+    en_us: Whatsapp notification service for the Chameleon ecosystem.
+  developer: Renner Oliveira
+  author: Renner Oliveira
+  icon: https://github.com/RennerWOliveira/casaos-test/blob/main/Apps/chameleon-notifier-service/icon.png?raw=true
+  thumbnail: ""
+  title:
+    en_us: Chameleon Notifier Service
+  category: Chameleon
+  port_map: "3010"

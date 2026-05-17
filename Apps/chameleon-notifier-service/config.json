@@ -1,0 +1,7 @@
+{
+  "id": "chameleon-notifier-service",
+  "version": "1.0.0",
+  "image": "192.168.0.246:5000/chameleon-notifier-service:latest",
+  "youtube": "",
+  "docs_link": ""
+}
