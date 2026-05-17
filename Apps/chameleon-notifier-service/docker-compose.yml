@@ -1,14 +1,13 @@
 name: chameleon-notifier-service
 services:
   chameleon-notifier-service:
-    container_name: chameleon-notifier-service
-    image: 192.168.0.246:5000/chameleon-notifier-service:latest
+    container_name: chameleon-notifier-service-api
+    image: 192.168.0.246:5000/chameleon-notifier-service:1.0.2
     restart: unless-stopped
     environment:
       - PORT=3010
       - API_KEY=1739a70bfc827dc6480674f139a937d9
       - DATABASE_URL=postgresql://casaos:casaos@192.168.0.246:5432/chameleon-notifier
-      - OPENAI_API_KEY=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
     volumes:
       - /DATA/AppData/$AppID/.wwebjs_auth:/app/.wwebjs_auth
       - /DATA/AppData/$AppID/.wwebjs_cache:/app/.wwebjs_cache
